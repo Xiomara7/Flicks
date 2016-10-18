@@ -17,8 +17,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     var movies: [NSDictionary]?
     var endpoint: String!
     var refreshControl: UIRefreshControl!
-    
-    @IBOutlet weak var networkingErrorView: UIView!
+    var showErrorMessage: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             action: #selector(refreshControlAction(refreshControl:)),
             for: .valueChanged
         )
-
         tableView.insertSubview(refreshControl, at: 0)
         
         self.getMovies()
@@ -45,6 +43,30 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
         self.getMovies()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if showErrorMessage {
+            return 34.0
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if showErrorMessage {
+            let errorView = UIView()
+            errorView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+            
+            let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: 328.0, height: 34.0))
+            label.textColor = UIColor.white
+            label.textAlignment = .center
+            label.text = "Network Error"
+            
+            errorView.addSubview(label)
+            
+            return errorView
+        }
+        return UIView()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -108,13 +130,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 // Hide HUD once the network request comes back
                 MBProgressHUD.hide(for: self.view, animated: true)
                 
-                if let requestError = error {
-                    self.networkingErrorView.isHidden = false
-                    
-                    print(requestError)
+                if let _ = error {
+                    self.showErrorMessage = true
                     
                 } else if let requestData = data {
-                    self.networkingErrorView.isHidden = true
+                    self.showErrorMessage = false
                     
                     if let dict = try! JSONSerialization.jsonObject(
                         with: requestData,
