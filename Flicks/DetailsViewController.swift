@@ -33,6 +33,8 @@ class DetailsViewController: UIViewController {
             let imageURL = URL(string: imageStr)
             
             posterImageView.setImageWith(imageURL!)
+        } else {
+            posterImageView.image = nil
         }
         
         let title = movie["title"] as? String

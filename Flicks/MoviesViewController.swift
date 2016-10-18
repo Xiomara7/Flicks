@@ -68,6 +68,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             let imageURL = URL(string: imageStr)
             
             cell.posterImageView.setImageWith(imageURL!)
+        } else {
+            cell.posterImageView.image = nil
         }
         
         cell.titleLabel.text = title
