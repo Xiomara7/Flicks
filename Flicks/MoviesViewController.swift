@@ -89,7 +89,29 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             let imageStr = baseURL + posterPath
             let imageURL = URL(string: imageStr)
             
-            cell.posterImageView.setImageWith(imageURL!)
+            let imageRequest = NSURLRequest(url: imageURL!)
+            
+            cell.posterImageView.setImageWith(
+                imageRequest as URLRequest,
+                placeholderImage: nil,
+                success: { (imageRequest, imageResponse, image) -> Void in
+                    
+                    // imageResponse will be nil if the image is cached
+                    if imageResponse != nil {
+                        cell.posterImageView.alpha = 0.0
+                        cell.posterImageView.image = image
+                        
+                        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                            cell.posterImageView.alpha = 1.0
+                        })
+                    } else {
+                        cell.posterImageView.image = image
+                    }
+                },
+                failure: { (imageRequest, imageResponse, error) -> Void in
+                    cell.posterImageView.image = nil
+                }
+            )
         } else {
             cell.posterImageView.image = nil
         }

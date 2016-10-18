@@ -32,7 +32,29 @@ class DetailsViewController: UIViewController {
             let imageStr = baseURL + posterPath
             let imageURL = URL(string: imageStr)
             
-            posterImageView.setImageWith(imageURL!)
+            let imageRequest = NSURLRequest(url: imageURL!)
+            
+            posterImageView.setImageWith(
+                imageRequest as URLRequest,
+                placeholderImage: nil,
+                success: { (imageRequest, imageResponse, image) -> Void in
+                    
+                    // imageResponse will be nil if the image is cached
+                    if imageResponse != nil {
+                        self.posterImageView.alpha = 0.0
+                        self.posterImageView.image = image
+                        
+                        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                            self.posterImageView.alpha = 1.0
+                        })
+                    } else {
+                        self.posterImageView.image = image
+                    }
+                },
+                failure: { (imageRequest, imageResponse, error) -> Void in
+                    self.posterImageView.image = nil
+                }
+            )
         } else {
             posterImageView.image = nil
         }
