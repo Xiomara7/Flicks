@@ -16,17 +16,17 @@
                         <viewControllerLayoutGuide type="bottom" id="Opb-hz-1lc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="204" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2ZA-Ki-cxF">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="204" id="JcZ-Ba-eMK" customClass="MovieCell" customModule="Flicks" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="204"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="204"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JcZ-Ba-eMK" id="GXr-D2-Q1E">
-                                            <frame key="frameInset" width="342" height="203"/>
+                                            <frame key="frameInset" width="287" height="203"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0d-n9-CZE">
@@ -70,23 +70,39 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" alpha="0.84999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Y8-Ej-gaF">
+                                <frame key="frameInset" minY="64" width="320" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Networking Error " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8w-eA-W7I">
+                                        <frame key="frameInset" minX="93" minY="7" width="135" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2ZA-Ki-cxF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Bs1-xq-bwI"/>
+                            <constraint firstItem="2ZA-Ki-cxF" firstAttribute="top" secondItem="7Ih-g5-9WT" secondAttribute="bottom" id="Fdc-8u-QbM"/>
                             <constraint firstItem="2ZA-Ki-cxF" firstAttribute="bottom" secondItem="Opb-hz-1lc" secondAttribute="top" id="H9e-dw-LFj"/>
-                            <constraint firstItem="2ZA-Ki-cxF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YJb-fl-FhD"/>
                             <constraint firstAttribute="trailing" secondItem="2ZA-Ki-cxF" secondAttribute="trailing" id="e7B-Hj-ZsN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Movies" id="i0U-ml-BTC"/>
                     <connections>
+                        <outlet property="networkingErrorView" destination="1Y8-Ej-gaF" id="r1j-rx-5KF"/>
                         <outlet property="tableView" destination="2ZA-Ki-cxF" id="sCX-vu-6Ad"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="137.18140929535232"/>
+            <point key="canvasLocation" x="826.875" y="136.26760563380282"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="F5d-A5-HVU">
@@ -97,7 +113,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hGa-3R-dUX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vJi-3p-Pel">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXB-H6-BU2">
