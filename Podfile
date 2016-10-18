@@ -5,5 +5,6 @@ target 'Flicks' do
   use_frameworks!
 
 pod 'AFNetworking', '~> 2.6'
+pod 'MBProgressHUD'
 
 end

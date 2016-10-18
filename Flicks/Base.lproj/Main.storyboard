@@ -102,8 +102,7 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXB-H6-BU2">
                                 <subviews>
-                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-D0-xbu">
-                                        <rect key="frame" x="0.0" y="603" width="375" height="312"/>
+                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-D0-xbu">
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO0-na-cv4">
                                                 <frame key="frameInset" minX="8" minY="8" width="359" height="21"/>
@@ -122,22 +121,20 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="312" id="A42-Og-3Tt"/>
+                                            <constraint firstAttribute="height" constant="312" id="yRd-uu-mDB"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jdJ-hO-POS">
-                                        <rect key="frame" x="0.0" y="-64" width="375" height="667"/>
-                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jdJ-hO-POS"/>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="LqA-D0-xbu" firstAttribute="leading" secondItem="jdJ-hO-POS" secondAttribute="leading" id="7KZ-KN-Pvo"/>
                                     <constraint firstItem="jdJ-hO-POS" firstAttribute="leading" secondItem="vXB-H6-BU2" secondAttribute="leading" id="AWO-Ja-cnK"/>
+                                    <constraint firstItem="LqA-D0-xbu" firstAttribute="top" secondItem="vXB-H6-BU2" secondAttribute="top" constant="603" id="EkP-rJ-vDR"/>
                                     <constraint firstAttribute="bottom" secondItem="jdJ-hO-POS" secondAttribute="bottom" id="IOY-ZS-qKR"/>
-                                    <constraint firstItem="jdJ-hO-POS" firstAttribute="leading" secondItem="LqA-D0-xbu" secondAttribute="leading" id="J7J-QQ-8lz"/>
                                     <constraint firstAttribute="trailing" secondItem="jdJ-hO-POS" secondAttribute="trailing" id="VOC-oG-oLD"/>
                                     <constraint firstItem="jdJ-hO-POS" firstAttribute="centerY" secondItem="vXB-H6-BU2" secondAttribute="centerY" id="Yt6-Ds-cVE"/>
-                                    <constraint firstItem="LqA-D0-xbu" firstAttribute="top" secondItem="jdJ-hO-POS" secondAttribute="bottom" id="oog-Sr-w2i"/>
+                                    <constraint firstItem="LqA-D0-xbu" firstAttribute="trailing" secondItem="jdJ-hO-POS" secondAttribute="trailing" id="aEn-8s-goA"/>
                                     <constraint firstItem="jdJ-hO-POS" firstAttribute="centerX" secondItem="vXB-H6-BU2" secondAttribute="centerX" id="snk-Q8-RLS"/>
-                                    <constraint firstItem="jdJ-hO-POS" firstAttribute="trailing" secondItem="LqA-D0-xbu" secondAttribute="trailing" id="ws1-cj-gYW"/>
                                     <constraint firstItem="jdJ-hO-POS" firstAttribute="top" secondItem="vXB-H6-BU2" secondAttribute="top" id="xVH-wg-QUY"/>
                                 </constraints>
                             </scrollView>
@@ -152,7 +149,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wub-1s-Xpm"/>
                     <connections>
-                        <outlet property="infoView" destination="vJi-3p-Pel" id="0SK-Ng-Tcl"/>
+                        <outlet property="infoView" destination="LqA-D0-xbu" id="JNl-AH-Tnl"/>
                         <outlet property="overviewLabel" destination="JGS-mH-7r7" id="0DM-c2-IP5"/>
                         <outlet property="posterImageView" destination="jdJ-hO-POS" id="SJz-ET-3bm"/>
                         <outlet property="scrollView" destination="vXB-H6-BU2" id="pra-hQ-k8v"/>
@@ -166,7 +163,7 @@
         <!--Navigation Controller-->
         <scene sceneID="mrZ-la-D00">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qWF-EB-peA" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="moviesNavController" automaticallyAdjustsScrollViewInsets="NO" id="qWF-EB-peA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KaG-Vq-sHP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
