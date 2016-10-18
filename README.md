@@ -26,5 +26,10 @@ The following **optional** features are implemented:
 
 ## Video Walkthrough
 
+Here are walkthrough of implemented user stories. 
+
+![networkingerror](https://cloud.githubusercontent.com/assets/3449724/19467046/045e21ae-94dd-11e6-8eb6-e978a19f8001.gif)
+![flicks](https://cloud.githubusercontent.com/assets/3449724/19467049/064e3986-94dd-11e6-85bd-6431f9007cb3.gif)
+
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
